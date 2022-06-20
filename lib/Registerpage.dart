@@ -156,7 +156,8 @@ class _RegisterPage extends State<RegisterPage> {
                         borderRadius: BorderRadius.circular(50.0),
                         side: const BorderSide(color: Colors.blue, width: 2)),
                     textColor: Colors.white,
-                    child: const Text("Register"),
+                    //Expanded(),
+                    child: const Text("Apply"), //register  use Expanded widget
                   ),
                 )
               ],

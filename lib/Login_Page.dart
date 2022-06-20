@@ -50,6 +50,7 @@ class _Login extends State<Login> {
                         padding: const EdgeInsets.only(
                             bottom: 15, left: 10, right: 10),
                         child: TextFormField(
+                          key: const Key('emailLoginField'),
                           keyboardType: TextInputType.text,
                           decoration:
                               buildInputDecoration(Icons.email, "Email"),
