@@ -5,15 +5,14 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 //import 'package:flutter/material.dart';
-//import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
-//import 'package:bristol_exchange/main.dart';
+import 'package:bristol_exchange/Registerpage.dart';
 // Visit https://flutter.dev/docs/cookbook/testing/widget/introduction for
 // more information about Widget testing.
 //import 'package:flutter/B/material.dart';
 //import "package:BRISTOL_EXCHANGE/widget_test.dart";
 import 'package:flutter/material.dart';
-
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -32,11 +31,8 @@ void main() {
       // Verify myWidget shows some text
       expect(find.byType(Text), findsOneWidget);
 
-      //await tester.pumpWidget(MyApp());
-
       // Enter 'hi' into the TextField.
-      //await tester.enterText(find.byType(TextField), 'Onyango Ed.');
-      // expect(find.byType(Text), findsOneWidget);
+      await tester.enterText(find.byType(TextField), 'Onyango Ed.');
     });
   });
 }

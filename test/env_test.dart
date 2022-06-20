@@ -8,6 +8,7 @@ void main() {
     });
 
     test('value should be incremented', () {
+      //An instance of counter in bristol_exchange/counter.dart.
       final counter = Counter();
 
       counter.increment();
