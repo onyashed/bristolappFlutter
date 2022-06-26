@@ -43,6 +43,7 @@ class _RegisterPage extends State<RegisterPage> {
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
+                    key: const Key('personSignUpField'),
                     keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.person, "Full Name"),
                     validator: (String? value) {
@@ -60,6 +61,7 @@ class _RegisterPage extends State<RegisterPage> {
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
+                    key: const ValueKey('emailSignUpField'),
                     keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.email, "Email"),
                     validator: (String? value) {
@@ -81,6 +83,7 @@ class _RegisterPage extends State<RegisterPage> {
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
+                    key: const ValueKey('phoneSignUpField'),
                     keyboardType: TextInputType.number,
                     decoration: buildInputDecoration(Icons.phone, "Phone No"),
                     validator: (String? value) {
@@ -98,6 +101,7 @@ class _RegisterPage extends State<RegisterPage> {
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
+                    key: const ValueKey('passwordSignUpField'),
                     controller: password,
                     keyboardType: TextInputType.text,
                     decoration: buildInputDecoration(Icons.lock, "Password"),
@@ -113,6 +117,7 @@ class _RegisterPage extends State<RegisterPage> {
                   padding:
                       const EdgeInsets.only(bottom: 15, left: 10, right: 10),
                   child: TextFormField(
+                    key: const ValueKey('confirmpasswordSignUpField'),
                     controller: confirmpassword,
                     obscureText: true,
                     keyboardType: TextInputType.text,

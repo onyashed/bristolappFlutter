@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "658878742977",
+    "project_id": "bristolfirebasedblink",
+    "storage_bucket": "bristolfirebasedblink.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658878742977:android:6edd8613940df666b1af40",
+        "android_client_info": {
+          "package_name": "com.bristoltest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658878742977-fedceos8gurrvsot30d8eu73kc8jfmqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiHFfpM54zkcIi54z8PtzXUosCWwwIfpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658878742977-fedceos8gurrvsot30d8eu73kc8jfmqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer' as developer;
+import 'dart:ffi';
 import 'package:flutter/gestures.dart';
 import 'package:bristol_exchange/Deco_design.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +9,18 @@ import 'package:bristol_exchange/Forgotpassword.dart';
 import 'package:bristol_exchange/Registerpage.dart';
 
 import 'Registerpage.dart';
+import 'package:bristol_exchange/network_utils/api.dart';
+//import 'package:tutorial_app/screen/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
   @override
   _Login createState() => _Login();
+  //////////////////////
+  // _LoginState createState() => _LoginState();
+///////////////////
 }
 
 class _Login extends State<Login> {
@@ -84,8 +93,11 @@ class _Login extends State<Login> {
                             if (value!.isEmpty) {
                               return 'Please re-enter password';
                             }
-                            print(password.text);
-
+                            var strpass = '';
+                            strpass = password.text.toString();
+                            developer.log('input $strpass',
+                                name: 'loginpage',
+                                error: password.text.toString());
                             return null;
                           },
                         ),
@@ -184,5 +196,35 @@ class _Login extends State<Login> {
         ),
       ), //padding
     );
+  }
+
+  void _login() async {
+    setState(() {
+      bool _isLoading = true;
+    });
+    var data = {'email': 'brisapp@flutter.com', 'password': "adminadmin"};
+
+    var res = await Network().authData(data, '/login');
+    var body = json.decode(res.body);
+
+    print(body['token'] + "tkn");
+    debugPrint("output..token data...");
+    debugPrint(body);
+    if (body['success']) {
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      localStorage.setString('token', json.encode(body['token']));
+      localStorage.setString('user', json.encode(body['user']));
+      Navigator.push(
+        context,
+        new MaterialPageRoute(builder: (context) => RegisterPage()),
+      );
+    } else {
+      print(body['message'] + "msg");
+      // _showMsg(body['message']);
+    }
+
+    setState(() {
+      bool _isLoading = false;
+    });
   }
 }

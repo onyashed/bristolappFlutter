@@ -30,7 +30,7 @@ void main() {
     //         body: Text('Hello'),
     //       ),
     //     );
-    const $loginWidget = MaterialApp(home: Login());
+    const loginWidget = MaterialApp(home: Login());
     //     // Build myWidget and trigger a frame.
     //     await tester.pumpWidget(myWidget);
 
@@ -65,7 +65,7 @@ void main() {
     testWidgets('test registration screen formtextfield widgets',
         (tester) async {
       // Build the widget
-      await tester.pumpWidget($loginWidget);
+      await tester.pumpWidget(loginWidget);
       //expect(find.text('Email'), findsNothing);
       //TextField and TextFormField are same.
       expect(find.byType(TextFormField), findsNWidgets(2));
@@ -73,7 +73,7 @@ void main() {
       expect(find.text('LOGIN'), findsOneWidget);
       expect(find.text('REGISTER'), findsOneWidget);
       // Enter 'hi' into the TextField.
-
+      tester.printToConsole("done checking Login widgets");
       //await tester.enterText(find.byIcon(Icons.person), 'Onyango Ed');
       // expect(find.byType(Text), findsOneWidget);
     });
@@ -93,7 +93,7 @@ void main() {
     });
     testWidgets('input email widget validation on empty submit check..',
         (tester) async {
-      await tester.pumpWidget($loginWidget);
+      await tester.pumpWidget(loginWidget);
       //by key
       expect(find.byKey(const Key('emailLoginField')), findsOneWidget);
       //check widget exists  by icon
@@ -115,7 +115,7 @@ void main() {
       print('login action on..');
     });
     testWidgets('email input entry check..', (tester) async {
-      await tester.pumpWidget($loginWidget);
+      await tester.pumpWidget(loginWidget);
       // print('Email check.. ok..');
       //Load element afresh.
       //await tester.pumpWidget($loginWidget);
@@ -130,9 +130,10 @@ void main() {
       expect(find.text("onyash_8080@test.net"), findsNothing);
     });
     testWidgets("valid login test..", (tester) async {
-      await tester.pumpWidget($loginWidget);
-      final emailErrorFinder = find.text('Please Enter Name');
-
+      await tester.pumpWidget(loginWidget);
+      final emailErrorFinder = find.text('Please Enter Name'); //.toString()
+      tester.printToConsole(
+          'SignUp screen opens $emailErrorFinder'); //Interpolation //concartenate with +''
       //   await tester.tap(buttonFinder);
     });
   });

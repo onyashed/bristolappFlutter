@@ -16,6 +16,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  //final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
   group('MyWidget', () {
     testWidgets('should display a string of text', (WidgetTester tester) async {
       // Define a Widget
