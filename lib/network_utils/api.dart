@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Network {
-  final String _url = 'http://localhost:8000';
+  final String _url = 'https://api.bristolapp.verygood.co.ke';
   //if you are using android studio emulator, change localhost to 10.0.2.2
   var token;
 

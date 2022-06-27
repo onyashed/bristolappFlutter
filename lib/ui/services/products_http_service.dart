@@ -6,12 +6,11 @@ import 'dart:developer' as developer;
 
 //duplicate or reuse
 class HttpService {
-  final String product_URL =
-      "/api/v1/bristolapp/paginated/products";
+  final String product_URL = "/api/v1/bristolapp/paginated/products";
 
   Future<List<Product>> getProducts() async {
-    Response res = await get(Uri.http("https://api.bristolapp.verygood.co.ke",
-        "/api/v1/bristolapp/paginated/products"));
+    Response res = await get(Uri.parse(
+        "https://api.bristolapp.verygood.co.ke/api/v1/bristolapp/paginated/products"));
     developer.log('http connect',
         name: 'products', error: res.statusCode.toString());
     if (res.statusCode == 200) {

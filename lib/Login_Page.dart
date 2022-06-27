@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer' as developer;
 import 'dart:ffi';
+import 'package:bristol_exchange/ui/frontend/list_products.dart';
 import 'package:flutter/gestures.dart';
 import 'package:bristol_exchange/Deco_design.dart';
 import 'package:flutter/material.dart';
@@ -95,6 +96,7 @@ class _Login extends State<Login> {
                             }
                             var strpass = '';
                             strpass = password.text.toString();
+
                             developer.log('input $strpass',
                                 name: 'loginpage',
                                 error: password.text.toString());
@@ -121,7 +123,8 @@ class _Login extends State<Login> {
                                     MaterialPageRoute(
                                         builder: (context) =>
                                             //set this to home screen
-                                            const Login()),
+
+                                            ProductsPage()),
                                   );
                                   return;
                                 } else {
@@ -209,6 +212,8 @@ class _Login extends State<Login> {
 
     print(body['token'] + "tkn");
     debugPrint("output..token data...");
+    developer.log('http connect',
+        name: 'products', error: body['token'].toString());
     debugPrint(body);
     if (body['success']) {
       SharedPreferences localStorage = await SharedPreferences.getInstance();
