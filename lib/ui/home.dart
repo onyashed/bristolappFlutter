@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   final String uname;
-  HomePage({required Key key, required this.uname}) : super(key: key);
+  HomePage({Key? key, required this.uname}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

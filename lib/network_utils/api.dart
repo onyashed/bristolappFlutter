@@ -15,7 +15,7 @@ class Network {
     print(token);
   }
 
-  authData(data, apiUrl) async {
+  authData(data, apiUrl, {required Map<String, String> headers}) async {
     var fullUrl = _url + apiUrl;
     return await http.post(Uri.parse(fullUrl),
         body: jsonEncode(data), headers: _setHeaders());

@@ -207,7 +207,10 @@ class _Login extends State<Login> {
     });
     var data = {'email': 'brisapp@flutter.com', 'password': "adminadmin"};
 
-    var res = await Network().authData(data, '/login');
+    var res = await Network().authData(data, '/login', headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded"
+    });
     var body = json.decode(res.body);
 
     print(body['token'] + "tkn");

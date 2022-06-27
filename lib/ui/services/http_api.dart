@@ -7,10 +7,7 @@ class HttpService {
   final String postsURL = "https://jsonplaceholder.typicode.com/posts";
 
   Future<List<Post>> getPosts() async {
-    Response res = await get(Uri.parse(postsURL), headers: {
-      "Accept": "application/json",
-      "Content-Type": "application/x-www-form-urlencoded"
-    });
+    Response res = await get(Uri.parse(postsURL));
 
     if (res.statusCode == 200) {
       List<dynamic> body = jsonDecode(res.body);

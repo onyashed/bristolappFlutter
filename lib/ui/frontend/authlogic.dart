@@ -20,13 +20,13 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.orange[600],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      //  home: MyHomePage(title: 'Demo Login'),
+      home: MyHomePage(title: 'Demo Login'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({required Key key, required this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -58,7 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
     };
 
     //Starting Web API Call.
-    var response = await http.post(Uri.parse(url), body: json.encode(data));
+    var response = await http.post(Uri.parse(url),
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: json.encode(data));
     if (response.statusCode == 200) {
       //Server response into variable
       print(response.body);
@@ -97,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  Future<dynamic> showMessage(String _msg) {
+  Future<dynamic>? showMessage(String _msg) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -274,7 +279,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: ElevatedButton(
                         onPressed: () => {
                           // Validate returns true if the form is valid, or false otherwise.
-                          // if (_formKey.currentState.validate()) {userLogin()}
+                          if (_formKey.currentState!.validate()) {userLogin()}
                         },
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
